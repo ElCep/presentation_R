@@ -113,11 +113,16 @@
 						<h2>R à proprement parler</h2>
 					</section>
 					<section>
-						<h2>Une archtecture particulière</h2>
+						<h2>Une architecture particulière</h2>
 						<ul>
 							<li>Un noyau : R-base (version 3.2.1 (2015-06-18) -- "World-Famous Astronaut")</li>
 							<li>Des packages sur le <a href="http://cran.univ-paris1.fr/">CRAN</a> : The Comprehensive R Archive Network</li>
 						</ul>
+						<!-- <pre>
+							<code data-trim>
+								demo()
+							</code>
+						</pre> -->
 						<video preload="auto" controls="controls" src="video/Screencast.webm" height="400"></video>
 					</section>
 					<section>
@@ -162,11 +167,71 @@
 						<h2>Pour aller plus loins ...</h2>
 						<p align="left">Pour notre plus grand plaisir : </p>
 						<ul>
-							<li>On peut rédiger presque automatiquement des rapport avec LaTeX et R</li>
-							<li>Faire des présentation en R et Markdown</li>
+							<li>On peut rédiger presque automatiquement des rapport avec <a href="http://yihui.name/knitr/">LaTeX et R</a></li>
+							<li>Faire des présentation en <a href="http://yihui.name/knitr/">R et Markdown</a></li>
 						</ul>
 						<p>Bref tout est possible !</p>
 						<img height="250px" src="img/new_world.gif"  alt="tele-realite">
+					</section>
+				</section>
+				<section>
+					<section>
+						<h2>Permiers pas avec R</h2>
+					</section>
+					<section>
+						<h2>demander de l'aide à R</h2>
+						<pre>
+							<code data-trim>??read
+?read
+help("read.csv")</code>
+						</pre>
+						<img height="450px" src="img/Star-Wars-Endings-4.jpg" alt="startwars 'this droids'">
+					</section>
+					<section>
+						<h2>Lire un fichier de données</h2>
+						<pre>
+							<code data-trim>
+								read.table("mon_fichier.txt", header = TRUE, sep = ",")
+							</code>
+						</pre>
+						<pre>
+							<code data-trim>
+								read.csv("mon_fichier.txt", header = TRUE, sep = ",")
+							</code>
+						</pre>
+						Les fonction <i>read</i> sont très puissantes, on peut appeller des données directement en ligne
+						<pre>
+							<code data-trim>
+								read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Premières notions de variables</h2>
+						<p>Est un langage orienté objet. Tout est donc objets qu'est ce que ça veux dire ?</p>
+						<p>Il faut organiser ses données pour pouvoir les retrouver</p>
+						<pre>
+							<code data-trim>
+data.df = read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
+data.df <- read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
+							</code>
+						</pre>
+						<p align="left">Des regles pour nomer les variables</p>
+						<ul>
+							<li>Un nom claire</li>
+							<li>attention aux noms déjà attribué (data ... pas bien)</li>
+						</ul>
+					</section>
+					<section>
+						<h2>Les types de données</h2>
+						<p>Dans R le typage est dynamiques, ce qui veux dire que R va essayer de fair ce qu'il peut avec vos données</p>
+						<p align="left"> Plusieurs moyen de connaitre le type des données</p>
+						<pre>
+							<code data-trim>
+typeof(data.df$Date)
+str(data.df)
+							</code>
+						</pre>
 					</section>
 				</section>
 				<section data-background="img/fin.jpg" data-background-transition="slide">
