@@ -55,9 +55,9 @@
 					<section>
 						<h2>R c'est quoi?</h2>
 						<ul>
-							<li><a href="https://www.gnu.org/home.fr.html">Un projet GNU</a> développé par <a href="https://fr.wikipedia.org/wiki/John_Chambers_%28statisticien%29">John Chambers</a> <i>et al.</i> au seins du "<a href="https://fr.wikipedia.org/wiki/Laboratoires_Bell">Bell Lab</a>" (1993)</li>
+							<li><a href="https://www.gnu.org/home.fr.html">Un projet GNU</a> développé par <a href="https://fr.wikipedia.org/wiki/John_Chambers_%28statisticien%29">John Chambers</a> <i>et al.</i> au sein du "<a href="https://fr.wikipedia.org/wiki/Laboratoires_Bell">Bell Lab</a>" (1993)</li>
 							<li>Logiciel libre pour le calcul statistique et graphique</li>
-							<li>Un langage de programation fonctionnel écrit initialement en <a href="https://fr.wikipedia.org/wiki/C_%28langage%29">C</a> et <a href="https://fr.wikipedia.org/wiki/Fortran">Fortran</a>.
+							<li>Un langage de programation fonctionnel, écrit initialement en <a href="https://fr.wikipedia.org/wiki/C_%28langage%29">C</a> et <a href="https://fr.wikipedia.org/wiki/Fortran">Fortran</a>.
 						</ul>
 						<img height="350px" src="img/Rplot-exemples.png" alt="exemples">
 					</section>
@@ -74,7 +74,7 @@
 						<h2>Pourquoi utiliser R ?</h2>
 						<ul>
 							<li>Multi-platforme (Windows, Mac OS, Linux, BSD, etc.)</li>
-							<li>Analyse statistique "au vole"</li>
+							<li>Analyse statistique "au vol"</li>
 							<li>Des fonctions mathématiques et des modules graphiques embarqués</li>
 							<li>Un usage modulaire par <i>packages</i> (6 789 (le 18 juin 2015))</li>
 							<li>Libre et ouvert !!!</li>
@@ -85,8 +85,8 @@
 					<section>
 						<h2>R un épiphénomène ?</h2>
 						<ul>
-							<li>6e Langage le plus utilisé au mode en 2015 selon IEEE Spectrum</li>
-							<li>Particulièrement utiliser par les <i>data science</i> (c.f. <a href="https://www.kaggle.com/">Kaggle</a>)</li>
+							<li>6e Langage le plus utilisé au monde en 2015 selon IEEE Spectrum</li>
+							<li>Particulièrement utilisé par les <i>data science</i> (c.f. <a href="https://www.kaggle.com/">Kaggle</a>)</li>
 							<li>Un langage pour l'entreprise aussi</li>
 						</ul>
 						<table>
@@ -103,8 +103,8 @@
 					<section>
 						<h2>Un support commercial</h2>
 						<ul>
-							<li>Depuis 2007 Revolution R (Microsoft) propose un support comerciale</li>
-							<li>R iest utiliser par les acteurs du Big Data : Apache Hadoop, Oracle Enterprise, etc.</li>
+							<li>Depuis 2007, Revolution R (Microsoft) propose un support comercial</li>
+							<li>R est utilisé par les acteurs du Big Data : Apache Hadoop, Oracle Enterprise, etc.</li>
 						</ul>
 					</section>
 				</section>
@@ -131,7 +131,7 @@
 					</section>
 					<section>
 						<h2>Des IDE</h2>
-						<p>On cherchera à facilité l'utilisation avec un IDE (<i>Integrated Development Environment</i>)
+						<p>On cherchera à faciliter l'utilisation avec un IDE (<i>Integrated Development Environment</i>)
 						<ul>
 							<li>Rgui (R Graphic User Interface) par défaut sur windows</li>
 							<li><a href="https://www.rstudio.com/">RStudio</a></li>
@@ -141,10 +141,10 @@
 					</section>
 					<section>
 						<h2>Des packages</h2>
-						<p>Avec R ou trouve une architecture modulable. Avec l'installation de base, on n'aura une utilisation de base qu'on agrémentera des packages. Pour cela on pourra procéder à l'installation directement dans R : </p>
+						<p>Avec R, ou trouve une architecture modulable. Avec l'installation de base, on aura une utilisation de base qu'on agrémentera des packages. Pour cela on pourra procéder à l'installation directement dans R : </p>
 						<pre><code>install.packges("ggplot2")</code></pre>
-						<p>Mais la plus part des IDE propose aussi un interface graphique</p>
-						<p align="left">La liste des 5 packages les plus téléchargé (2015) : </p><!-- source :http://www.computerworld.com/article/2920117/business-intelligence/most-downloaded-r-packages-last-month.html-->
+						<p>Mais la plupart des IDE propose aussi une interface graphique</p>
+						<p align="left">La liste des 5 packages les plus téléchargés (2015) : </p><!-- source :http://www.computerworld.com/article/2920117/business-intelligence/most-downloaded-r-packages-last-month.html-->
 						<ol>
 							<li><a href="https://cran.r-project.org/web/packages/digest/">Rcpp</a> : C# integration in R</li>
 							<li><a href="https://cran.r-project.org/web/packages/ggplot2/">ggplot2</a> : An implementation of the Grammar of Graphics</li>
@@ -208,7 +208,7 @@ help("read.csv")</code>
 					</section>
 					<section>
 						<h2>Premières notions de variables</h2>
-						<p>Est un langage orienté objet. Tout est donc objets qu'est ce que ça veux dire ?</p>
+						<p>Est un langage orienté objet. Tout est donc objet; qu'est ce que ça veux dire ?</p>
 						<p>Il faut organiser ses données pour pouvoir les retrouver</p>
 						<pre>
 							<code data-trim>
@@ -216,16 +216,16 @@ data.df = read.table("https://www.google.org/flutrends/about/data/flu/data.txt",
 data.df <- read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
 							</code>
 						</pre>
-						<p align="left">Des regles pour nomer les variables</p>
+						<p align="left">Des règles pour nomer les variables</p>
 						<ul>
-							<li>Un nom claire</li>
-							<li>attention aux noms déjà attribué (data ... pas bien)</li>
+							<li>Un nom clair</li>
+							<li>attention aux noms déjà attribués (data ... pas bien)</li>
 						</ul>
 					</section>
 					<section>
 						<h2>Les types de données</h2>
-						<p>Dans R le typage est dynamiques, ce qui veux dire que R va essayer de fair ce qu'il peut avec vos données</p>
-						<p align="left"> Plusieurs moyen de connaitre le type des données</p>
+						<p>Dans R le typage est dynamique, ce qui veux dire que R va essayer de faire ce qu'il peut avec vos données</p>
+						<p align="left"> Plusieurs moyens de connaître le type de données</p>
 						<pre>
 							<code data-trim>
 typeof(data.df$Date)
