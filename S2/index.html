@@ -71,66 +71,206 @@
 				</section>
 				<section>
 					<section>
-						<h2>R à proprement parler</h2>
+						<h2>Rappels</h2>
 					</section>
-					
+					<section>
+						<h2>Rappel 1: charger des données</h2>
+						<p>On peut télécharger le jeux de données issu du package questionnr à l'adresse suivante :</p>
+						<p><a href="https://github.com/ElCep/presentation_R/tree/master/S2/data">https://github.com/ElCep/presentation_R/tree/master/S2/data</a></p>
+						<pre>
+							<code data-trim>data.df<-read.csv("hdv2003.csv",header = TRUE, sep = ",")</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Rappel 2: accès à la donnée</h2>
+						<pre>
+							<code data-trim>
+data.df$id
+data.df[,1]
+</code>
+						</pre>
+						<pre>
+							<code data-trim>data.df[,1]</code>
+						</pre>
+						<pre>
+							<code data-trim>data.df[1,]</code>
+						</pre>
+						<pre>
+							<code data-trim>data.df[1,1]</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Rappel 3 : fonction basic</h2>
+						<pre>
+							<code data-trim>mean(data.df[,2])
+mean(data.df[,2],na.rm = TRUE)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Quelques fonction utiles</h2>
+						<pre>
+							<code data-trim>
+c() #construit un vecteur à partir d’une série de valeurs
+length() #nombre d’éléments d’un vecteur
+mean() #moyenne d’un vecteur de type numérique
+var() #variance d’un vecteur de type numérique
+min() #valeur minimale d’un vecteur numérique
+max() #valeur maximale d’un vecteur numérique
+sd() #écart-type d’un vecteur numérique
+							</code>
+						</pre>
+					</section>
 				</section>
 				<section>
 					<section>
-						<h2>Permiers pas avec R</h2>
+						<h2>Premier travail avec des données</h2>
 					</section>
 					<section>
-						<h2>demander de l'aide à R</h2>
-						<pre>
-							<code data-trim>??read
-?read
-help("read.csv")</code>
-						</pre>
-						<img height="450px" src="img/Star-Wars-Endings-4.jpg" alt="startwars 'this droids'">
-					</section>
-					<section>
-						<h2>Lire un fichier de données</h2>
+						<h2>Structure du tableau</h2>
 						<pre>
 							<code data-trim>
-								read.table("mon_fichier.txt", header = TRUE, sep = ",")
-							</code>
-						</pre>
-						<pre>
-							<code data-trim>
-								read.csv("mon_fichier.txt", header = TRUE, sep = ",")
-							</code>
-						</pre>
-						Les fonctions <i>read</i> sont très puissantes, on peut appeler des données directement en ligne
-						<pre>
-							<code data-trim>
-								read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
-							</code>
-						</pre>
-					</section>
-					<section>
-						<h2>Premières notions de variables</h2>
-						<p>Est un langage orienté objet. Tout est donc objet; qu'est ce que ça veux dire ?</p>
-						<p>Il faut organiser ses données pour pouvoir les retrouver</p>
-						<pre>
-							<code data-trim>
-data.df = read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
-data.df <- read.table("https://www.google.org/flutrends/about/data/flu/data.txt", skip = 11, header = TRUE, sep = ",")
-							</code>
-						</pre>
-						<p align="left">Des règles pour nomer les variables</p>
-						<ul>
-							<li>Un nom clair</li>
-							<li>attention aux noms déjà attribués (data ... pas bien)</li>
-						</ul>
-					</section>
-					<section>
-						<h2>Les types de données</h2>
-						<p>Dans R le typage est dynamique, ce qui veux dire que R va essayer de faire ce qu'il peut avec vos données</p>
-						<p align="left"> Plusieurs moyens de connaître le type de données</p>
-						<pre>
-							<code data-trim>
-typeof(data.df$Date)
+nrow(data.df)
+[1] 2000
+ncol(data.df)
+[1] 20
+dim(data.df)
+[1] 2000 20
+names(data.df)
+...
 str(data.df)
+
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Inspection visuelle</h2>
+						<pre>
+							<code data-trim>
+edit(data.df)
+data.df <- edit(data.df)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Analyser une variables quantitative 1</h2>
+						<pre>
+							<code data-trim>
+mean(data.df$heures.tv)
+[1] NA
+mean(data.df$heures.tv, na.rm = TRUE)
+[1] 2.246566
+sd(data.df$heures.tv, na.rm = TRUE)
+[1] 1.775853
+min(data.df$heures.tv, na.rm = TRUE)
+[1] 0
+max(data.df$heures.tv, na.rm = TRUE)
+[1] 12
+range(data.df$heures.tv, na.rm = TRUE)
+[1] 0 12
+median(data.df$heures.tv, na.rm = TRUE)
+[1] 2
+R> summary(data.df$heures.tv)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Analyser une variables quantitative 2</h2>
+						<pre>
+							<code data-trim>
+hist(data.df$heures.tv, main = "Nombre d'heures passées devant la télé par jour", 
+xlab = "Heures", ylab = "Effectif")
+							</code>
+						</pre>
+						<img height="350px" src="img/histogram.png" alt="histogram">
+					</section>
+					<section>
+						<h2>Analyser une variables quantitative 2.2</h2>
+						<pre>
+							<code data-trim>
+hist(data.df$heures.tv, main = "Heures de télé en 7 classes", breaks = 7, 
+xlab = "Heures",ylab = "Proportion", probability = TRUE, col = "orange")
+							</code>
+						</pre>
+						<img height="350px" src="img/histogram7c.png" alt="histogram">
+					</section>
+					<section>
+						<h2>Analyser une variables quantitative 2.3</h2>
+						<pre>
+							<code data-trim>
+hist(data.df$heures.tv, main = "Heures de télé avec classes spécifiées", 
+breaks = c(0,1, 4, 9, 12), xlab = "Heures", 
+ylab = "Proportion", col = "red")
+							</code>
+						</pre>
+						<img height="350px" src="img/histogram4c.png" alt="histogram">
+					</section>
+					<section>
+						<h2>Analyser une variables quantitative 3</h2>
+						<pre>
+							<code data-trim>
+boxplot(data.df$heures.tv, main = "Nombre d'heures passées devant la télé par jour",
+ylab = "Heures")
+							</code>
+						</pre>
+						<img height="350px" src="img/boxplot1.png" alt="boxplot">
+					</section>
+					<section>
+						<h2>Analyser une variables Qualitative 1</h2>
+						<pre>
+							<code data-trim>
+table(data.df$sexe)
+table(data.df$occup)
+sort(table(data.df$occup))
+sort(table(data.df$occup), decreasing = TRUE)
+
+summary(data.df$trav.satisf)
+freq(data.df$qualif)
+freq(data.df$qualif, cum = TRUE, total = TRUE, 
++ sort = "inc", digits = 2, exclude = NA)
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>Analyser une variables Qualitative 2.1</h2>
+						<pre>
+							<code data-trim>
+plot(table(data.df$freres.soeurs), main = "Nombre de frères, soeurs, demi-frères et demi-soeurs",
+ylab = "Effectif")
+							</code>
+						</pre>
+						<img height="350px" src="img/barplot.png" alt="barplot">
+					</section>
+					<section>
+						<h2>Analyser une variables Qualitative 2.2</h2>
+						<pre>
+							<code data-trim>
+dotchart(t(table(data.df$clso)), main = "Sentiment d'appartenance à une classe sociale", pch = 19)
+							</code>
+						</pre>
+						<img height="350px" src="img/cleveland.png" alt="cleveland 1">
+					</section>
+					<section>
+						<h2>Analyser une variables Qualitative 2.3</h2>
+						<pre>
+							<code data-trim>
+dotchart(sort(table(data.df$qualif)), main = "Niveau de qualification")
+							</code>
+						</pre>
+						<img height="350px" src="img/cleveland2.png" alt="cleveland 2">
+					</section>
+					<section>
+						<h2>Summarizing data</h2>
+						<pre>
+							<code data-trim>
+library(plyr)
+cdata <- ddply(data.df, c("sexe", "qualif"), summarise,
+               N    = length(id),
+               meanAge = mean(age),
+               sdAge   = sd(age),
+               meanPoids = mean(poids),
+               sdPoids   = sd(poids)
+)
 							</code>
 						</pre>
 					</section>
@@ -140,7 +280,9 @@ str(data.df)
 					<img src="img/github.png" alt="logo gitHub" width="13.9%"></img>
 					<img src="img/QR_code_contact.png" alt="contactez moi!" width="20%"></img></br>
 					<p style="text-align:center;">Vous pouvez retrouver cette présentation sur GitHub : </br><a href="https://rawgit.com/ElCep/presentation_R/master/index.html#/">http://unil.im/hOUnL</a></p>
-					<small>Présentation réalisée avec <a href="https://github.com/hakimel/reveal.js">reveal.js</a></small></br></br>
+					<small>Présentation réalisée avec <a href="https://github.com/hakimel/reveal.js">reveal.js</a>
+					<small>Contenu largement inspirer de <a href="https://cran.r-project.org/doc/contrib/Barnier-intro_R.pdf">"Introduction à R"</a> par Julien Barnier</small>
+					</small></br></br>
 					<small>Crédit photo : <a href="http://www.flickr.com/photos/misnyot/6357634305/sizes/m/in/photostream/">Thomas Misnyovszki </a> on Flick'r</small>
 				</section>
 
